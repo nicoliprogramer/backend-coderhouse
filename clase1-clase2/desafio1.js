@@ -24,7 +24,7 @@ class Usuario {
 
     getBooksNames() {
         const mapBooks = this.libros.map(book => book.book)
-        console.log(`Poseo estos libros: ${mapBooks}`);
+        console.log(mapBooks);
     }
 };
 
@@ -38,6 +38,6 @@ personaje.addMascota("frodo");
 console.log(personaje.countMascotas());
 
 
-personaje.addBook("Biblia", "dios");
-personaje.addBook(" Luna de Plutón", "Dross");
+personaje.addBook({ book: "La Biblia", autor: "Dios" });
+personaje.addBook({ book: "Luna de Plutón", autor: "Dross" });
 personaje.getBooksNames()

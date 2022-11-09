@@ -9,13 +9,12 @@ class Contenedor {
         this.nombreArchivo = nombreArchivo;
 
         if (fs.existsSync(nombreArchivo)) {
-            this.productArray = JSON.parse(fs.readFileSync(this.nombreArchivo, "utf-8"));
+            this.productArray = JSON.parse(fs.readFileSync(this.nombreArchivo, "utf-8")); //lee el archivo
             this.typeId = this.#detId();
             console.log("Archivo Existente");
         } else {
             this.typeId = 0;
-            fs.writeFileSync(this.
-                nombreArchivo, JSON.stringify(this.productArray));
+            fs.writeFileSync(this.nombreArchivo, JSON.stringify(this.productArray));    //sobrescribe en un archivo / primer indice:ruta del archivo y segundo indice: todo lo que queremos escribir
             console.log("Archivo NO existente");
         }
     }
@@ -32,20 +31,20 @@ class Contenedor {
     }
 
     async save(Object) {
-        try {
+        try {              //sincronico
             if (!this.#thisIs(Object)) {
                 Object["id"] = this.typeId + 1;
                 this.typeId++;
                 this.productArray.push(Object);
-                await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(this.productArray));
+                await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(this.productArray));  //escribe en un archivo
                 console.log("Se ha guardado el desayuno: " + Object.id + ".");
-                return Promise.resolve(Object.id);
+                return Promise.resolve(Object.id);  // crea promesa
             }
             else {
                 console.log("Se han guardado los cambios");
             }
         }
-        catch (error) {
+        catch (error) {  //promesa rechazada (operacion falla)
             console.log(error);
         }
     }
@@ -61,44 +60,31 @@ class Contenedor {
     }
 
     getById(id) {
-        let obj = null;
-        this.productArray.map((component) => {
-            if (component.id == id) {
-                obj = component;
-            }
-        })
-        return obj;
+        return this.productArray.find(p => p.id == id) || null
     }
 
     async getAll() {
         try {
-            const data = await fs.promises.readFile(this.nombreArchivo, "utf-8");
+            const data = await fs.promises.readFile(this.nombreArchivo, "utf-8");  //lee archivo
             this.productArray = JSON.parse(data);
-            return this.productArray;
+            console.log(this.productArray);
+
         }
         catch (error) {
             console.log(error);
         }
     }
 
-    async deleteById(Number) {
-        let select = false;
-        for (let i = 0; i < this.productArray.length; i++) {
-            if (this.productArray[i].Number === Number) {
-                select = true;
-                this.productArray.splice(i, 1);
-                i--;
-            }
-        }
+    async deleteById(id) {
 
-        if (select) {
-            try {
-                await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(this.productArray))
-                console.log("Lo Borraste");
-            }
-            catch (error) {
-                console.log(error);
-            }
+        this.productArray = this.productArray.filter(p => p.id !== id)
+
+        try {
+            await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(this.productArray))   //escribe en un archivo
+            return { id }
+        }
+        catch (error) {
+            console.log(error);
         }
 
     }
@@ -106,7 +92,7 @@ class Contenedor {
     async deleteAll() {
         this.productArray = [];
         try {
-            await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(this.productArray))
+            await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(this.productArray))  //escribe en un archivo
             console.log("Todo borrado");
         }
         catch (error) {
@@ -125,6 +111,7 @@ let desayuno3 = { title: "Desayuno Cumpleaños", price: 4.000, img: "./producto3
 
 const desayunosCordoba = new Contenedor("./productos.txt");
 action = () => {
+
     desayunosCordoba.getAll()
         .then(() => desayunosCordoba.save(desayuno))
         .then(() => desayunosCordoba.save(desayuno2))
@@ -132,7 +119,9 @@ action = () => {
         .then(() => {
             console.log(desayunosCordoba.getById(8));
         })
-
 }
 
 action();
+
+
+// callback es una funcion que se envia como argumento a otra funcion 

@@ -1,1 +1,1 @@
-[{"title":"Desayuno Caja de Madera","price":3.233,"img":"./producto1.jpg","id":1},{"title":"Desayuno Romántico","price":2.555,"img":"./producto2.jpg","id":2},{"title":"Desayuno Cumpleaños","price":4,"img":"./producto3.jpg","id":3}]
+[{"title":"Desayuno Caja de Madera","price":3.233,"img":"./producto1.jpg","id":1},{"title":"Desayuno Cumpleaños","price":4,"img":"./producto3.jpg","id":3},{"title":"Desayuno Romántico","price":2.555,"img":"./producto2.jpg","id":5}]

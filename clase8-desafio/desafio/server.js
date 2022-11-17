@@ -64,11 +64,6 @@ routerProductos.put("/:id", (req, res) => {
     const { id } = req.params
     const productoNuevo = req.body
 
-    const productoAnterior = productos[parseInt(id) - 1]
-    if (!productoAnterior) {
-        res.send("Producto no disponible")
-    }
-
     const productoEliminado = productos.splice(parseInt(id - 1), 1)
 
     productos.push(productoNuevo)

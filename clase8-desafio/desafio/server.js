@@ -62,13 +62,22 @@ routerProductos.post("/", (req, res) => {
 
 routerProductos.put("/:id", (req, res) => {
     const { id } = req.params
-    const productoNuevo = { ...req.body, productos }
+    const productoNuevo = req.body
+
     const productoAnterior = productos[parseInt(id) - 1]
     if (!productoAnterior) {
         res.send("Producto no disponible")
     }
-    res.json({ ...productoNuevo })
 
+    const productoEliminado = productos.splice(parseInt(id - 1), 1)
+
+    const nuevosProductos = { productoEliminado, productoNuevo }
+
+    productos.push(nuevosProductos)
+
+    res.send(productoNuevo)
+
+    console.log(nuevosProductos);
 })
 
 

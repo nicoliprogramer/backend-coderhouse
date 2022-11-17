@@ -71,7 +71,13 @@ routerProductos.put("/:id", (req, res) => {
     res.json({ productoEliminado, productoNuevo })
 })
 
+routerProductos.delete("/:id", (req, res) => {
+    const { id } = req.params
 
+    const productoEliminado = productos.splice(parseInt(id - 1), 1)
+
+    res.send(productoEliminado)
+})
 app.use("/productos", routerProductos)
 
 const PORT = 8080;

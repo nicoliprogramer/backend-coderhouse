@@ -71,11 +71,11 @@ routerProductos.put("/:id", (req, res) => {
 
     const productoEliminado = productos.splice(parseInt(id - 1), 1)
 
-    const nuevosProductos = { productoEliminado, productoNuevo }
+    const nuevosProductos = { productoNuevo }
 
     productos.push(nuevosProductos)
 
-    res.send(productoNuevo)
+    res.json({ productoEliminado, productoNuevo })
 
     console.log(nuevosProductos);
 })

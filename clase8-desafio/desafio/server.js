@@ -71,13 +71,9 @@ routerProductos.put("/:id", (req, res) => {
 
     const productoEliminado = productos.splice(parseInt(id - 1), 1)
 
-    const nuevosProductos = { productoNuevo }
-
-    productos.push(nuevosProductos)
+    productos.push(productoNuevo)
 
     res.json({ productoEliminado, productoNuevo })
-
-    console.log(nuevosProductos);
 })
 
 

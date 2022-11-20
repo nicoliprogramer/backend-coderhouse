@@ -62,22 +62,19 @@ routerProductos.post("/", (req, res) => {
 
 routerProductos.put("/:id", (req, res) => {
     const { id } = req.params
-    const productoNuevo = req.body
+    const nuevosProductos = productos.map(p => p.id == id ? { ...req.body, id } : p)
 
-    const productoEliminado = productos.splice(parseInt(id - 1), 1)
-
-    productos.push(productoNuevo)
-
-    res.json({ productoEliminado, productoNuevo })
+    res.send(nuevosProductos)
 })
 
 routerProductos.delete("/:id", (req, res) => {
     const { id } = req.params
+    const eliminandoProducto = productos.filter(p => p.id != id)
 
-    const productoEliminado = productos.splice(parseInt(id - 1), 1)
-
-    res.send(productoEliminado)
+    res.send(eliminandoProducto)
 })
+
+
 app.use("/productos", routerProductos)
 
 const PORT = 8080;

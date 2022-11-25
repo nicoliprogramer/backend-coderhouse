@@ -23,6 +23,7 @@ const upload = multer({ storage: storage })
 // end config multer
 
 const router = express.Router()
+
 router.post("/subir", upload.single("miArchivo"), (req, res) => {
     const file = req.file
     if (!file) {

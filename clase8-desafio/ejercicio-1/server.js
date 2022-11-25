@@ -1,11 +1,11 @@
 const express = require("express");
 const { Router } = express;
 
-const app = express();
+const app = express();  // nos provee las rutas
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use("/static", express.static(__dirname + "/public"))
+app.use("/static", express.static(__dirname + "/public"))  //middleware
 // app.use(express.static("/new.png"))
 
 const mascotas = []

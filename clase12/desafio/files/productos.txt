@@ -29,10 +29,4 @@
     "thumbnail": "https://firebasestorage.googleapis.com/v0/b/desayunos-react.appspot.com/o/producto3.jpg?alt=media&token=6762b725-5d8b-42cc-b43b-7d6835dbc7ef",
     "id": 5
   },
-  {
-    "title": "",
-    "price": "",
-    "thumbnail": "as",
-    "id": 6
-  }
 ]

@@ -22,11 +22,5 @@
     "author": "elpibeprogramer@gmail.com",
     "text": "jajaja hola chicos, yo vengo por lo mismo",
     "id": 4
-  },
-  {
-    "date": "30/11/2022, 21:29:46",
-    "author": "sadas@gmail.comasdas",
-    "text": "czafasdas",
-    "id": 5
   }
 ]

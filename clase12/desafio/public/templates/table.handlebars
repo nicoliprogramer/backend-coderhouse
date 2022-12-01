@@ -1,0 +1,23 @@
+<div class="lista">
+    {{#if products.length}}
+    <hr><br>
+    <h2>Lista de Productos</h2>
+
+    <table style="width:100% ">
+        <tr>
+            <th>Título</th>
+            <th>Precio</th>
+            <th>URL IMG</th>
+        </tr>
+        {{#each products}}
+        <tr>
+            <td>{{this.title}}</td>
+            <td>${{this.price}}</td>
+            <td><img class="producto" src="{{this.thumbnail}}" /></td>
+        </tr>
+        {{/each}}
+    </table>
+    {{else}}
+    <h2>No se encontraron productos</h2>
+    {{/if}}
+</div>

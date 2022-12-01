@@ -1,0 +1,32 @@
+[
+  {
+    "date": "11/11/2022, 18:43:25",
+    "author": "julioprofe@live.com.ar",
+    "text": "Muy buenas he comprado la empresa Coderhouse. Pasen contacto para comprar empresa desayunos",
+    "id": 1
+  },
+  {
+    "date": "11/11/2022, 18:46:47",
+    "author": "soydalto@gmail.com",
+    "text": "Muy buenas quiero un envio de Desayuno Cumpleaños",
+    "id": 2
+  },
+  {
+    "date": "11/11/2022, 21:46:18",
+    "author": "totoruffa@gmail.com",
+    "text": "yo llevo lo mismo que dalto",
+    "id": 3
+  },
+  {
+    "date": "11/11/2022, 21:46:20",
+    "author": "elpibeprogramer@gmail.com",
+    "text": "jajaja hola chicos, yo vengo por lo mismo",
+    "id": 4
+  },
+  {
+    "date": "30/11/2022, 21:29:46",
+    "author": "sadas@gmail.comasdas",
+    "text": "czafasdas",
+    "id": 5
+  }
+]

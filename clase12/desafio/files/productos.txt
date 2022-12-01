@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Box Premium",
+    "price": 3240,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/desayunos-react.appspot.com/o/producto1.jpg?alt=media&token=17f714e2-4956-4e9b-8cf9-cf15be3e692e",
+    "id": 1
+  },
+  {
+    "title": "Box Desayuno",
+    "price": 2665,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/desayunos-react.appspot.com/o/producto4.jpg?alt=media&token=7a5506dd-70f2-4bf0-bfd8-a81df9708824",
+    "id": 2
+  },
+  {
+    "title": "Desayuno Feliz Cumpleaños",
+    "price": 2590,
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/desayunos-react.appspot.com/o/producto2.jpg?alt=media&token=9fc4f84e-99be-48c7-801e-713f3d77695a",
+    "id": 3
+  },
+  {
+    "title": "Caja Love de Madera",
+    "price": "3709",
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/desayunos-react.appspot.com/o/producto5.jpg?alt=media&token=3cde8595-506e-40d7-8e02-3eaac58854e3",
+    "id": 4
+  },
+  {
+    "title": "Desayuno Romántico",
+    "price": "3553",
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/desayunos-react.appspot.com/o/producto3.jpg?alt=media&token=6762b725-5d8b-42cc-b43b-7d6835dbc7ef",
+    "id": 5
+  },
+  {
+    "title": "",
+    "price": "",
+    "thumbnail": "as",
+    "id": 6
+  }
+]

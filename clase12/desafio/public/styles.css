@@ -1,0 +1,95 @@
+header {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.producto {
+	width: 150px;
+	height: 150px;
+}
+
+
+/*Formulario*/
+
+.form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.form-style {
+	width: 350px;
+	font-size: 16px;
+	background: #e4f406;
+	padding: 30px 30px 30px 30px;
+}
+
+.form-style input[type=submit],
+.form-style input[type=button],
+.form-style input[type=text],
+.form-style input[type=number],
+.form-style textarea,
+.form-style label {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 30px;
+	color: rgb(12, 8, 8);
+
+}
+
+
+/* lista de productos */
+
+.lista {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 20vh;
+}
+
+.lista h2 {
+	font-size: 30px;
+}
+
+.lista ul {
+	list-style: none;
+}
+
+table,
+th,
+td {
+	border: 3px solid black;
+}
+
+/* chat */
+.author {
+	font-weight: lighter;
+	color: red;
+}
+
+.date {
+	color: black;
+}
+
+.text {
+	color: green;
+}
+
+.chatContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 30vh;
+}
+
+.message {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}

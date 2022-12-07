@@ -1,19 +1,18 @@
 {
-  "name": "cuarto-desafio",
+  "name": "entrega-6",
   "version": "1.0.0",
-  "description": "Cuarto desafio de CoderHouse",
-  "main": "server.js",
+  "description": "",
+  "main": "Server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/server.js"
+    "start": "node server.js"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
-    "nodemon": "^2.0.20",
-    "socket.io": "^4.5.3"
-  },
-  "keywords": []
+    "socket.io": "^4.5.4"
+  }
 }

@@ -41,11 +41,10 @@ io.on("connection", async (socket) => {
     socket.emit("messagesChat", chat);
 
     //Products
-    const products = await container.getAll();
-    socket.emit("products", products);
+        const products = await container.getAll();
+        socket.emit("products", products);
 
-    //Recibir msg
-    socket.on("newMsg", async (data) => {
+       socket.on("newMsg", async (data) => {
         await chatContainer.save(data)
         //enviar los mensajes a todos los socket conecta2
         const chat = await chatContainer.getAll();

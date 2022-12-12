@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "timestamp": 2243683245345,
+    "nombre": "Box Premium",
+    "descripcion": "Desayuno Sorpresa",
+    "codigo": "1234",
+    "precio": 1500,
+    "foto": "img.jpg",
+    "stock": 21
+  },
+  {
+    "id": 2,
+    "timestamp": 3245643334456,
+    "nombre": "Desayuno Feliz Cumpleaños",
+    "descripcion": "Desayuno Sorpresa",
+    "codigo": "1234",
+    "precio": 3000,
+    "foto": "img.png",
+    "stock": 21
+  },
+  {
+    "id": 3,
+    "timestamp": 3456432243689,
+    "nombre": "Caja de Madera Love",
+    "descripcion": "Desayuno Sorpresa",
+    "codigo": "1234",
+    "precio": 3000,
+    "foto": "img.png",
+    "stock": 21
+  },
+  {
+    "id": 4,
+    "timestamp": 424542654646
+  }
+]

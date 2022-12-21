@@ -9,7 +9,7 @@ socket.on("messages", data => {
     })
         .join(" ")
 
-    document.getElementById("messages").innerHTML = html
+    document.getElementById("messages").innerHTML = html // DOM
 })
 
 addMessage = () => {

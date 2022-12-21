@@ -14,7 +14,7 @@ const mensajes = [];
 io.on("connection", socket => {
     console.log("Nuevo cliente conectado");
 
-    socket.emit("mensajes", mensajes)
+    socket.emit("mensajes", mensajes) // el tercero vea el historial
 
     socket.on("mimensaje", data => {
         mensajes.push({ socketid: socket.id, mensaje: data })

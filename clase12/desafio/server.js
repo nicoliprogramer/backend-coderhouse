@@ -1,18 +1,19 @@
-const {config} = require ("./options/mysqlconn")
-const ClienteSQL = require ("./sqlContainer")
-
-const chatConfig = require("./options/sqlite3")
+import express from 'express';
+import handlebars from 'express-handlebars';
+import { Server } from'socket.io';
+import path from 'path';
 
 
 // -------------------------------------------------------
-const express = require('express');
-const handlebars = require('express-handlebars');
-const { Server } = require('socket.io');
-const path = require('path');
+import { options } from "./options/mysqlconn.js"
+import ClienteSQL from "./sqlContainer.js"
+import {options3} from "./options/sqlite3.js"
+// -------------------------------------------------------
 
 
 
-const viewsFolder = path.join(__dirname, "views");
+
+const viewsFolder = path.join("views");
 
 const app = express();
 
@@ -22,7 +23,7 @@ const server = app.listen(PORT, () => console.log("Server is runner in " + PORT)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "/public"))
+app.use(express.static("/public"))
 
 app.engine("handlebars", handlebars.engine());
 
@@ -35,9 +36,10 @@ app.set("view engine", "handlebars");
 const io = new Server(server);
 
 
+
 // --------------------------------------------------------------------------------------
-const sql = new ClienteSQL(config)
-const sqlChat = new ClienteSQL(chatConfig)
+const sql = new ClienteSQL(options)
+const sqlChat = new ClienteSQL(options3)
 
 sql.crearTabla()
 console.log("Tabla creada");
@@ -50,21 +52,18 @@ console.log("Chat creado");
 //Detectar cada socket de un cliente que se conecte
 io.on("connection", async (socket) => {
     console.log("Un nuevo cliente se ha conectado");
-
-
     //Chat
     const chat = await sqlChat.listarArticulos();
     socket.emit("messagesChat", chat);
 
     //Products
-        const products = await sql.listarArticulos();
-        socket.emit("products", products);
+    const products = await sql.listarArticulos();
+    socket.emit("products", products);
 
-        // msj
+    //msj
        socket.on("newMsg", async (data) => {
         await sqlChat.insertarChat(data)
-
-        // enviar msjs a todos los sockets
+        //enviar los mensajes a todos los sockets
         const chat = await sqlChat.listarChat();
         io.sockets.emit("messagesChat", chat)
     })

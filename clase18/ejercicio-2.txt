@@ -1,0 +1,71 @@
+1-
+
+    db.clientes.insertMany([{nombre: "nico", edad: 17}, {nombre: "pedri", edad: 22}, {nombre: "gago", edad: 38}])
+
+
+2-
+
+    db.clientes.find().sort({edad: -1})  //decendent
+
+
+3-
+
+    db.clientes.find().sort({edad: 1}).limit(1) //mas joven
+
+
+4-
+
+    db.clientes.find().sort({edad:1}).limit(1).skip(1) //segundo mas joven
+
+
+5-
+
+    db.clientes.find({nombre: "juan"})  //listar todos los que tengan el nombre especifico
+    db.clientes.find({nombre: {$eq: "juan"}})
+
+
+6-
+
+    db.clientes.find({nombre: "juan", edad: 27})    //listar nombre y edad especifica
+    db.clientes.find({$and: [{nombre: {$eq:"juan"}}, {edad: {$eq: 27}}]})
+
+
+7-
+
+    db.clientes.find({$or: [{nombre: "juan"},{nombre: "gago"}]})  // todos los que al menos una condicion traigan 
+    db.clientes.find({$or: [{nombre: {$eq:"juan"}},{nombre: {$eq:"gago"}}]})
+
+
+8-
+
+    db.clientes.find({edad: {$gt: 25}})  //mayores 25
+
+
+9- 
+
+    db.clientes.find({edad: {$lte: 25}}) //menores a 25
+
+
+10-
+
+    db.clientes.find({edad: {$ne: 17}})  //exluyendo a 17
+
+
+11-
+
+    db.clientes.find({edad: {$in: [27, 34]}})  // buscar en esas edades
+
+
+12-
+
+    db.clientes.updateOne({nombre: "nico"}, {$set: {edad: 22}})  // actualizar uno en la coleccion clientes
+
+
+13-
+
+    db.clientes.updateMany({edad: 22}, {$set: {edad: 17}}) //actualizar todos los que tengan 22 a 17
+
+
+14-
+
+    db.clientes.deleteMany({nombre: "messi"})  //eliminar todos los que tengan...

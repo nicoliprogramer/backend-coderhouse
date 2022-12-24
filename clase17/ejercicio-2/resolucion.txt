@@ -1,0 +1,17 @@
+1- 
+
+    use mibase
+
+
+2- 
+
+     db.usuarios.insertMany([
+    {nombre: "Juan", apellido: "Perez", edad: 23, email: "jp@gmail.com"},
+    {nombre: "Pedro", apellido: "Ema", edad: 33, email: "pedri@gmail.com"},
+    {nombre: "Seva", apellido: "Letre", edad: 13, email: "sevagerman@gmail.com"}
+])
+
+
+3-
+
+    

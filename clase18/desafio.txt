@@ -1,0 +1,70 @@
+1-
+
+    use ecommerce
+
+
+2-
+
+    db.productos.insertMany([{nombre: "leche",codigo: "AB-12", precio: 400, stock: 220}, {nombre: "fernet",codigo: "CD-52", precio: 4000, stock: 50}, {nombre: "coca",codigo: "AD-42", precio: 500, stock: 255},{nombre: "caballa",codigo: "EF-22", precio: 600, stock: 90},{nombre: "avena",codigo: "HI-66", precio: 1000, stock: 100},{nombre: "fideos",codigo: "AB-11", precio: 300, stock: 245},{nombre: "aceitunas",codigo: "JK-76", precio: 755, stock: 105},{nombre: "matambre",codigo: "LM-44", precio: 2000, stock: 55},{nombre: "ron",codigo: "LI-66", precio: 5000, stock: 12},{nombre: "servilleta",codigo: "SA-45", precio: 398, stock: 101}])
+
+    db.mensajes.insertMany([{email: "elnegroenrique@live.com.ar",date: "06/12/2022", mensaje: "le tiro un pase al diego"},{email: "maradona@live.com.ar",date: "06/12/2022", mensaje: "agarro la pelota y me marcan dos"},{email: "batcher@live.com.ar",date: "06/12/2022", mensaje: "aunque le pegue al diego, nos hizo el gol igual"},{email: "brieguel@live.com.ar",date: "06/12/2022", mensaje: "le sali todo abierto al diego, le tapé todo el arco. él me amago, la jugó cortita y me hizo el gol"}, {email: "valdano@live.com.ar",date: "07/12/2022", mensaje: "el diego me decia que pensaba en tirarme un pase"}, {email: "hugomoralesperiodista@live.com.ar",date: "06/12/2022", mensaje: "QUIERO LLORAR"}])
+
+
+3-
+
+    db.productos.find()
+    db.mensajes.find()
+
+
+4-
+
+    db.productos.find().count()
+    db.mensajes.find().count()
+
+
+5-
+
+    db.productos.insertOne({nombre: "yerba",codigo: "RE-13", precio: 3321, stock: 12})
+
+
+6-
+
+    db.productos.find({precio: {$lte: 1000}}) //menores a 1000
+
+
+7- 
+
+    db.productos.find({$and: [{precio:{$gt: 1000}}, {precio:{$lte: 3000}}]}) //entre 1000 y 3000
+
+
+8-
+
+    db.productos.find({precio: {$gt: 3000}})
+
+
+9-
+
+    db.productos.find({}, {nombre:1}).skip(1).limit(1).sort({ precio: 1})
+
+
+10-
+
+    db.productos.update({}, {$set:{"stock": 100}}, {"multi": true})
+
+
+11- 
+
+    db.productos.update({precio:{$gt: 4000}}, {$set:{"stock": 0}}, {"multi": true})
+
+
+12-
+
+    db.productos.deleteMany({precio:{$lt: 1000}})
+
+
+13-
+
+    use admin
+    db.createUser(
+    {user: "pepe", pwd: "asd456", roles:[{role: "read", db: "ecommerce"}]})
+    

@@ -1,16 +1,15 @@
-const express = require('express');
-const path = require('path');
+import express from 'express';
 
-const productRouter = require('./src/routers/productos');
-const carritoRouter = require('./src/routers/carrito');
+import {containerMongo} from './src/containers/mongodb/containerProducts.js';
+import {containerCarrito} from './src/containers/firebase/containerCarrito.js';
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api/productos', productRouter);
-app.use('/api/carrito', carritoRouter);
+app.use('/api/mongodb/products', containerMongo);
+app.use('/api/firebase/carrito', containerCarrito);
 
 app.use((req, res) => {
   res.status(404).json({
@@ -20,7 +19,7 @@ app.use((req, res) => {
 });
 
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;  
 app.listen(PORT, () => {
   console.log(`Server is runner in ${PORT}`);
 });

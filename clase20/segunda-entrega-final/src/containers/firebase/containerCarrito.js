@@ -1,8 +1,7 @@
 import admin from "firebase-admin";
-import fs from "fs"
+import  serviceAccount from './config/backen32190-firebase-adminsdk-akqwa-0070e8f209.json' assert { type: "json" };;
 
-const serviceAccount = JSON.parse(fs.readFileSync( "./config/backen32190-firebase-adminsdk-akqwa-0070e8f209.json"));
-
+console.log("asdddd",serviceAccount);
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
   });
@@ -10,10 +9,10 @@ admin.initializeApp({
 
 const db = admin.firestore()
 
-const query = db.collection("carrito")
+const query = db.collection("carritos")
 
 
-  export class carrito {
+export class containerCarrito {
 
     async getCarrito() {
         const todosLosProductos = await query.get()
@@ -31,7 +30,6 @@ const query = db.collection("carrito")
             return producto.data()
         })
     }  
-
 
     async postCarrito(){        
         const newCarrito = await query.add({timestamp:12321312, productos: []})

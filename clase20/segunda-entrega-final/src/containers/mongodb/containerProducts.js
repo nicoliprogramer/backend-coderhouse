@@ -10,50 +10,33 @@ await mongoose.connect(URL, {
 }) 
 console.log("conectados correctamente");
 
-try {
-    //create
-const newProductos = new models.productos(
-    {
-      "timestamp": 2243683245345,
-      "nombre": "Box Premium",
-      "descripcion": "Desayuno Sorpresa",
-      "codigo": "1234",
-      "precio": 1500,
-      "foto": "img.jpg",
-      "stock": 21
+
+export class containerMongo {
+
+    async postProducts(data){        
+        const archAdd = new models(data)
+        const productInsert = await archAdd.save()
+        return productInsert;
     }
-    )
-await newProductos.save()
-console.log("Productos Creados");
-console.log(newProductos);
 
+    async getProducts(id) {
+        const productId = id
+        if(productId){
+            const product = await models.findById(productId)
+            return product
+        }else{
+            const product = models.find()
+            return product
+        }
+    }
 
-} catch (error) {
-    console.log("El error es: " + error);
+    async updateProduct(id, product){
+        const productUpdate = await models.updateOne({_id: id}, product)
+        return productUpdate;
+    }
+
+    async deleteProduct(id){
+        const productDelete = await models.deleteOne({_id: id})
+        return productDelete;
 }
-
-export default class producto {
-
-    async getProductos() {
-        const collec = await query.get()
-        collec.forEach( arch => {return arch.data()})
-    }
-
-    async getProductosById(id) {
-        const collec = await query.doc(id).get()
-        collec.forEach( arch => {return arch.data()})
-    }
-
-    async postProductos(producto){        
-        await query.add(producto)
-    }
-
-    async updateProducto(id, producto){
-        await query.doc(id).update(producto)
-    }
-
-    async deleteProducto(id){
-        await query.doc(id).delete()
-    }
-
 }

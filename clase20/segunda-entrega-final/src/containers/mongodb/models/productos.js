@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const productosCollection = "productos";
 
 const ProductosSchema = new mongoose.Schema({
-    timestamp: Numbercl,
+    timestamp: Number,
     nombre: String,
     descripcion: String,
     codigo: String,

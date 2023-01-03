@@ -2,41 +2,53 @@ import mongoose from "mongoose";
 import * as models from "./models/productos.js"
 
 
-const URL = "mongodb+srv://coderhouse:coderhouse@backend32190.mtjzroy.mongodb.net/?retryWrites=true&w=majority"
+const URL = "mongodb+srv://coderhouse:coderhouse@backend32190.mtjzroy.mongodb.net/ecommerce?retryWrites=true&w=majority"
 
-await mongoose.connect(URL, {
+mongoose.connect(URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }) 
 console.log("conectados correctamente");
 
 
-export class containerMongo {
+export class ContainerMongo { 
 
-    async postProducts(data){        
-        const archAdd = new models(data)
+    async postProducts(data){ 
+        const archAdd = new models.productos(data)
         const productInsert = await archAdd.save()
-        return productInsert;
+        return productInsert
     }
 
-    async getProducts(id) {
-        const productId = id
-        if(productId){
-            const product = await models.findById(productId)
-            return product
-        }else{
-            const product = models.find()
-            return product
-        }
+    async getProducts() {
+        console.log(models);    
+        const products = await models.productos.find({})
+        return products;
+        
     }
 
     async updateProduct(id, product){
-        const productUpdate = await models.updateOne({_id: id}, product)
+        const productUpdate = await models.productos.updateOne({_id: id}, product)
         return productUpdate;
     }
 
     async deleteProduct(id){
-        const productDelete = await models.deleteOne({_id: id})
+        const productDelete = await models.productos.deleteOne({_id: id})
         return productDelete;
 }
 }
+
+
+//   (async () => {
+//     const container = new ContainerMongo()
+//     const inserted = await container.postProducts({
+//     "timestamp": 2243683245345,
+//     "nombre": "Box Premium",
+//     "descripcion": "Desayuno Sorpresa",
+//     "codigo": "1234",
+//     "precio": 1500,
+//     "foto": "img.jpg",
+//     "stock": 21
+//   })
+
+//     console.log('Ok', inserted);
+//   })();
